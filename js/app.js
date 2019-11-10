@@ -10,7 +10,7 @@ const clock = new THREE.Clock();
 
 function init() {
 
-  container = document.querySelector( '#scene-container' );
+  container = document.querySelector( '#planet-container' );
 
   scene = new THREE.Scene();
   scene.background = new THREE.Color( 0x000080 );

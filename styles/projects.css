@@ -1,0 +1,33 @@
+
+#project-tiles {
+  margin: 10px;
+}
+
+#project-tiles .col-md-4 {
+  padding: 20px;
+  /* just for debugging */
+}
+
+#project-tiles .col-md-4:hover {
+  /* just for debugging */
+  border-style: solid;
+  border-width: 1px;
+}
+
+.project-thumbnail {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
+
+.project-title {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5em;
+}
+
+.project-description {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.75em;
+  color: #666;
+}
+
