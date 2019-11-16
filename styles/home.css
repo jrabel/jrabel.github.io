@@ -10,10 +10,6 @@
 	max-height: 500px;
 }
 
-.row {
-	margin: 0;
-}
-
 .home-photo-col {
 	padding: 0;
 	display: flex;

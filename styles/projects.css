@@ -22,12 +22,20 @@
 
 .project-title {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 1.5em;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .project-description {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 0.75em;
-  color: #666;
+  font-size: 1em;
+  color: #777;
+}
+
+h1 {
+  margin-top: 2em;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
