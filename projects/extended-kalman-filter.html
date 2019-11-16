@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title>Justin Abel - Projects</title>
+
+		<meta charset="UTF-8" />
+
+		<!-- STYLE -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link href="../styles/navbar.css" rel="stylesheet" type="text/css">
+		<link href="../styles/projects.css" rel="stylesheet" type="text/css">
+
+		<!-- FONTS -->
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-expand-sm sticky-top" style="padding: 0; background-color: white">
+	    <ul class="navbar-nav">
+				<li id="menu-title-box" class="nav-item">
+			    <a id="menu-title" class="nav-link" href="../index.html">Justin Abel</a>
+			  </li>
+			  <li id="menu-item-1" class="nav-item">
+			    <a class="nav-link" href="../index.html">Home</a>
+			  </li>
+			  <li id="menu-item-2" class="nav-item">
+			    <a class="nav-link" href="../about.html">About</a>
+			  </li>
+			  <li id="menu-item-3" class="nav-item active">
+			    <a class="nav-link" href="../projects.html">Projects</a>
+			  </li>
+	    </ul>
+		</nav>
+
+	  <div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
+	    <div class="col-md-8">
+
+	    	<div class="row justify-content-md-center align-items-center">
+		    	<img src="../images/projects/ekf/markersn.jpg" style="width: 40%"/>
+		    	<img src="../images/projects/ekf/com_pos.jpg" style="width: 40%"/>
+		    </div>
+
+				<h1 class="project-title" style="margin: 40px 0;">Extended Kalman Filtering for State Estimation with Noise</h1>
+
+				<p class="project-description"><b>Overview:</b> This project is an extension of <a href="state-estimation.html" style="color: #00CED1">3D State Estimation and Control</a> as it deals with estimating the state of an “alien artifact” tumbling through space. However, here we focus on state estimation in the presence of sensor noise and occlusion. The goal is to use an Extended Kalman filter to produce optimal estimates of the position, orientation, and velocity of the artifact using noisy data of the markers on the corners of the artifact.</p>
+
+				<p class="project-description"><b>Source Code: </b> 
+					<a href="https://drive.google.com/open?id=0B81gni53B9VOOENQWGgzanR4ak0" style="color: #00CED1;">https://drive.google.com/open?id=0B81gni53B9VOOENQWGgzanR4ak0</a>
+				</p>
+
+				<h1>Setup:</h1>
+				<p class="project-description">As described above, the goal of this project is to estimate the state and future trajectory of a rectangular object as it tumbles through space. In order to do so, all we are given a text file containing 10 seconds of position data of markers on all corners of the object. However, this data is rather <b>noisy</b> making traditional state estimation techniques useless. Instead, we will employ an <b>Extended Kalman Filter</b> to estimate the true state of the artifact as it tumbles through space.</p>
+
+				<p class="project-description">A diagram of the alien artifact (with markers on its corners) as well as our lander spacecraft is shown below.</p>
+
+				<div class="row justify-content-md-center align-items-center">
+					<div class="col-md-6">
+						<img src="../images/projects/ekf/artifact_diagram.png" style="height: 400px"/>
+					</div>
+				</div>
+
+				<h1>Modeling the State Space:</h1>
+				<p class="project-description">As estimating the state involves estimating angular velocities (and orientation representation in quaternions), we are going to be dealing with non-linear dynamics. However, a Kalman filter is based on linear dynamic systems, so we can begin by creating our state estimate vector that we will use to eventually create a linearized representation of our dynamic system (the tumbling artifact that is). Because we need to track the COM position and velocity as well as the artifact orientation and angular velocity, my state estimate vector includes all of these terms. However, I initially represent the artifact orientation in terms of Euler angles as they correlate much nicer to the angular velocity terms than quaternions, but I convert these angles into quaternions at a later point. Here is my state estimate vector (where <code>ax, ay, az</code> are Euler angles):</p>
+
+				<div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
+					<div class="col-md-6">
+						<img src="../images/projects/ekf/state_est.png" style="width: 100%"/>
+					</div>
+				</div>
+
+				<p class="project-description"><b><u>Creating the State Space System:</u></b> Because a Kalman filter is based on linear system dynamics, we ideally need the dynamics of the artifact to be represented by a linear system of the following form:</p>
+
+				<pre><code>
+x(k+1) = A*x(k) + B*u(k)
+				</code></pre>
+
+				<p class="project-description">Where <code>A</code> represents the state matrix (from the system dynamics), <code>x</code> represents the state vector, <code>B</code> represents the input/control matrix, and <code>u</code> represents the input/control vector. We begin by solving for the next state in time, <code>x(k+1)</code>,  given our current state, <code>x(k)</code>, and a time step, <code>T</code>:</p>
+
+				<pre><code>
+x(k+1)  = x(k) + T * dx(k); 
+y(k+1)  = y(k) + T * dy(k);
+z(k+1)  = z(k) + T * dz(k);
+dx(k+1) = dx(k);
+dy(k+1) = dy(k);
+dz(k+1) = dz(k);
+ax(k+1) = ax(k) + T * ωx(k); 
+ay(k+1) = ay(k) + T * ωy(k);
+az(k+1) = az(k) + T * ωz(k);
+				</code></pre>
+
+				<p class="project-description">The above equation take care of the first 9 states in the state vector, and the best part is that they are all linear equations. We run into a problem when we try to solve for the future state of the last three variables (<code>ωx, ωy, ωz</code>). Like above, we need information about a state variables derivative to step forward in time and estimate the state at <code>k+1</code>. From rigid body dynamics, we can solve for the artifact’s angular acceleration using the following equation of motion:</p>
+
+				<pre><code>
+T = I * α + (ω x I * ω)
+				</code></pre>
+
+				<p class="project-description">where:</p> 
+				<p><code>T = applied torque</code></p>
+				<p><code>I = moment of inertia matrix</code></p>
+				<p><code>α = angular acceleration</code></p>
+				<p><code>ω = angular velocity</code></p>
+				<p class="project-description">Given that the artifact has no external applied torques, we can set the above equation equal to zero and solve for <code>α</code> (the derivative of angular velocity):</p>
+
+				<pre><code>
+α = -inv(I) * (ω x I * ω)
+				</code></pre>
+
+				<p class="project-description"><b>Note:</b> All of the above variables should be represented in the global frame. As I describe below, I track <code>α</code> and <code>ω</code> in the global frame, however, we are only given <code>I</code> (the moment of inertia matrix) in body coordinates along its principal axes. In order to orient the body fixed moment of inertia matrix in the global frame, we can convert our current orientation (in quaternions) into a rotation matrix, <code>Rq</code>, using <b>quat2rotm()</b> in MATLAB. Next, we can simply rotate the <code>I_body</code> matrix into the global frame by the following:</p>
+
+				<pre><code>
+I_global = Rq * I_body * Rq'
+				</code></pre>
+
+				<p class="project-description">This output, angular acceleration, is exactly what we are looking for as it represents the derivatives of the angular velocity components (<code>ωx, ωy, ωz</code>). However, there is a significant problem here, and it is that the above equation for <code>α</code> is non-linear with respect to our state variables. Because of this fact, we cannot easily lump our equations for the future state of the system into the convenient form <code>x(k+1) = A*x(k) + B*u(k)</code> and use the typical Kalman filter design. In order to solve this problem, we must create a non-linear version of the Kalman filter known as the <b>Extended Kalman Filter</b>. To do this, we essentially linearize our model about our current state estimate and covariance. Instead of the linear form <code>x(k+1) = A*x(k)</code>, we have a state space model of the form:</p>
+
+				<pre><code>
+x(k+1) = f(x(k))
+				</code></pre>
+
+				<p class="project-description">where <code>f()</code> is a non-linear function that maps the current state estimate, <code>x(k)</code>, to the next state, <code>x(k+1)</code>. We can approximate this function by calculating the functions Jacobian matrix, <code>F</code>, which is a matrix that contains all first order partial derivatives of the function, <code>f()</code>. The partial derivatives are evaluated with the current state information to obtain a linear first order approximation of the system of the form:</p>
+
+				<pre><code>
+x(k+1) = F * x(k)
+				</code></pre>
+
+				<h1>Creating the Extended Kalman Filter:</h1>
+				<p class="project-description">Now that we have a model for ‘linear’ dynamics around our current state estimate vector, we can begin forming the structure of the Extended Kalman filter. Similar to any linear state space model, we can predict the state at some time step <code>k</code> given the previous state at time <code>k-1</code> and our Jacobian state matrix, <code>F</code>, that represents the dynamics of our system. This relation can be seen in the first equation shown below (new best state estimate). However, there is always some uncertainty that goes along with any state estimate, and we can represent this with a state uncertainty covariance matrix, <code>P</code>. Furthermore, there is added noise from the environment which can be represented by an environmental noise covariance matrix, <code>Q</code>. Thus the new state uncertainty, <code>P(k)</code>, can be solved for with the second equation below:</p>
+
+				<div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
+					<div class="col-md-6">
+						<img src="../images/projects/ekf/predict_step.png" style="width: 100%"/>
+					</div>
+				</div>
+
+				<p class="project-description">The above equations represent the <b>prediction step</b>. With those equations and knowledge of the previous state, <code>x(k-1)</code> and <code>P(k-1)</code>, we can obtain our best estimate of the new state as well as the uncertainty of said state. Next, we can refine or update our state estimate using the marker data. In order to get our state into the form of our measurement output, we need what’s called an output matrix, <code>C</code>. This maps variables in our state to an output vector that is in a similar form as the measurement data (marker data) we have. Just like in the prediction step, we must represent the uncertainty due to sensor noise with a covariance matrix, <code>R</code>. With all of this information, we can now solve for our Kalman gain matrix, <code>K</code>, which helps us solve for a final and optimal state estimate, <code>x’</code>. Using the Kalman gain matrix, we can pre-multiply it by our measurement error to then add to our current best state estimate from the prediction step. This yields our final best state estimate at time <code>k</code>. We must also update our state uncertainty matrix, <code>P</code>, using the Kalman gain. The equation to do so is also shown below:</p>
+
+				<div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
+					<div class="col-md-6">
+						<img src="../images/projects/ekf/update_step.png" style="width: 100%"/>
+					</div>
+				</div>
+
+				<p class="project-description">With an initial state as the input to the Extended Kalman filter, we can then repeat the process above for all steps in time until we reach some desired final state.</p>
+
+				<p class="project-description">Below is the output from my Extended Kalman Filter for the first set of noisy marker data provided.</p>
+
+				<div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
+					<div class="col-md-6">
+						<img src="../images/projects/ekf/markersn.jpg" style="width: 100%"/>
+						<p class="project-description" style="text-align: center;"><i>Noisy Position of Top 2 Markers</i></p>
+					</div>
+					<div class="col-md-6">
+						<img src="../images/projects/ekf/com_pos.jpg" style="width: 100%"/>
+						<p class="project-description" style="text-align: center;"><i>Estimated COM Trajectory</i></p>
+					</div>
+				</div>
+
+				<p class="project-description">In the left image, only the noisy Marker 0 and Marker 1 (along the back right vertical edge, body z-axis) data is plotted so we can see the rough tumbling shape of the artifact. In the right image, the COM position output from the EKF is plotted. We can see that the estimated COM position lies nicely through the noisy marker data trajectory and does not deviate from a straight line as there are no external forces acting on the artifact.</p>
+
+				<p class="project-description">The estimated center of mass velocity as well as the estimated angular velocity (in all three components) is also plotted below:</p>
+
+				<div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
+					<div class="col-md-6">
+						<img src="../images/projects/ekf/com_vel.jpg" style="width: 100%"/>
+						<p class="project-description" style="text-align: center;"><i>Estimated COM Velocity</i></p>
+					</div>
+					<div class="col-md-6">
+						<img src="../images/projects/ekf/ang_vel.jpg" style="width: 100%"/>
+						<p class="project-description" style="text-align: center;"><i>Estimated Angular Velocity</i></p>
+					</div>
+				</div>
+
+				<p class="project-description">Lastly, the estimated quaternion orientation is plotted below (broken down to the 4 components):</p>
+
+				<div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
+					<div class="col-md-6">
+						<img src="../images/projects/ekf/quats.jpg" style="width: 100%"/>
+						<p class="project-description" style="text-align: center;"><i>Estimated Quaternion Orientation</i></p>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+
+
+	</body>
+
+</html>

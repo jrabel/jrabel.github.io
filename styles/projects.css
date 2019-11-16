@@ -14,6 +14,10 @@
   border-width: 1px;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 .project-thumbnail {
   width: 100%;
   height: auto;
@@ -23,6 +27,13 @@
 .project-title {
   font-family: 'Ubuntu', sans-serif;
   font-size: 3em;
+  font-weight: bold;
+}
+
+.project-tile-title {
+  margin-top: 0;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5em;
   font-weight: bold;
 }
 

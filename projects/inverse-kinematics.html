@@ -84,10 +84,10 @@
 				<p class="project-description"><b>part1.m</b> acts as the main function that initializes global variables for the desired target, link lengths, and the home position of the robot (to be used in the cost function). First, a variable <code>p0</code> is initialized with all zero Euler angles for all links to represent the home position which will be used as the initial set of angles for the optimization function. Next, the angle limit constraints are organized into lower and upper bounds (<code>lb</code> and <code>ub</code> respectively) for the matrix of joint angles to be passed into <b>fmincon</b>. Finally, the optimization function, <b>fmincon</b>, is called using the local function <b>criterion.m</b> as the objective cost function and the function <b>constraints.m</b> to specify the desired location and orientation constraints. The ‘interior-point’ algorithm is used as default with a maximum of 1000 function evaluations as shown below:</p>
 
 				<p class="project-description">
-					<b><code>options = optimset('Display','iter','MaxFunEvals',10000,'Algorithm','interior-point');</code></b>
+					<code>options = optimset('Display','iter','MaxFunEvals',10000,'Algorithm','interior-point');</code>
 				</p>
 				<p class="project-description">
-					<b><code>[answer,fval,exitflag]=fmincon(@criterion,p0,[],[],[],[],lb,ub,@constraints,options);</code></b>
+					<code>[answer,fval,exitflag] = fmincon(@criterion,p0,[],[],[],[],lb,ub,@constraints,options);</code>
 				</p>
 
 				<p class="project-description"><b>criterion.m</b> is the next function that is called by fmincon. This function takes in a matrix of Euler joint angles for each link and then performs Forward Kinematic calculations to derive the location and orientation of the last link using a function I wrote called <b>fk.m</b> (see description of fk.m below for more details). Now with the position of the last link, a cost function is created that calculates the square of the Euclidean distance between the tip and the desired location as well as the deviation of each joint angle from its home position (to encourage a solution that requires the least amount of link rotation/movement). A gain is multiplied by each of these two quantities before summing them as a way to tune the performance. I ended up applying a much larger gain to the squared Euclidean distance as it is more crucial and I found it decreased run time.</p>

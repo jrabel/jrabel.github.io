@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<title>Justin Abel - Projects</title>
+
+		<meta charset="UTF-8" />
+
+		<!-- STYLE -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link href="../styles/navbar.css" rel="stylesheet" type="text/css">
+		<link href="../styles/projects.css" rel="stylesheet" type="text/css">
+
+		<!-- FONTS -->
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-expand-sm sticky-top" style="padding: 0; background-color: white">
+	    <ul class="navbar-nav">
+				<li id="menu-title-box" class="nav-item">
+			    <a id="menu-title" class="nav-link" href="../index.html">Justin Abel</a>
+			  </li>
+			  <li id="menu-item-1" class="nav-item">
+			    <a class="nav-link" href="../index.html">Home</a>
+			  </li>
+			  <li id="menu-item-2" class="nav-item">
+			    <a class="nav-link" href="../about.html">About</a>
+			  </li>
+			  <li id="menu-item-3" class="nav-item active">
+			    <a class="nav-link" href="../projects.html">Projects</a>
+			  </li>
+	    </ul>
+		</nav>
+
+	  <div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
+	    <div class="col-md-8">
+
+	    	<div class="row justify-content-md-center align-items-center">
+		    	<img src="../images/projects/frisbee/sim_interface.png" style="width: 40%;"/>
+		    	<img src="../images/projects/frisbee/aiming.png" style="width: 50%;"/>
+		    </div>
+
+				<h1 class="project-title" style="margin: 40px 0;">Frisbee Simulator</h1>
+
+				<p class="project-description"><b>Overview:</b> This Frisbee Simulator accurately models the flight of a frisbee. By deriving the translational and rotational dynamics of a frisbee flying through the air, I developed equations of motion that were then mapped to a state space model that was integrated forward in time using MATLAB to solve for the pose of the disc as a function of time. I also used optimization techniques to solve for an initial set of throwing parameters to aim a frisbee throw to a target somewhere in 3D space. More details regarding my project, including videos, can be found below. If you are interested in learning about the math and physics behind it all, check out the white paper linked below.</p>
+
+				<div class="row justify-content-md-center align-items-center" style="margin-bottom: 30px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/PZRw_boT1qQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+
+				<p class="project-description"><b>White Paper: </b> 
+					<a href="https://drive.google.com/open?id=0B81gni53B9VOMHkzZ09VcUNiMm8" style="color: #00CED1;">https://drive.google.com/open?id=0B81gni53B9VOMHkzZ09VcUNiMm8</a>
+				</p>
+
+				<p class="project-description"><b>Source Code: </b> 
+					<a href="https://drive.google.com/open?id=0B81gni53B9VOa0ZMRVQ1QVZqZlE" style="color: #00CED1;">https://drive.google.com/open?id=0B81gni53B9VOa0ZMRVQ1QVZqZlE</a>
+				</p>
+
+				<h1>Basic Flight Examples:</h1>
+				<p class="project-description">Below are a few examples of various flight paths of a frisbee given a range of initial conditions. Here the initial conditions represent the way the frisbee is release (rotational velocity, release angles, height off of ground). The simulator can also model various types of throws including the classic forehand (flick) and backhand throws. Those experienced with the game of Ultimate will hopefully notice how the simulator accurately models realistic phenomena such as the air bounce, inside-out and outside-in throws, and disc tailing off at the end of their flight.</p>
+
+				<h1 style="text-align: center">Basic Flight</h1>
+				<div class="row justify-content-md-center align-items-center" style="margin-bottom: 30px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/Rl30X6J9I7g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+
+				<h1 style="text-align: center">Example of Flick Tailing Right</h1>
+				<div class="row justify-content-md-center align-items-center" style="margin-bottom: 30px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/kW0ac5HHbg4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+
+				<h1 style="text-align: center">Example of Backhand Tailing Left</h1>
+				<div class="row justify-content-md-center align-items-center" style="margin-bottom: 30px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/-gdm3j6U6So" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+
+				<p class="project-description">Even cooler still, is the simulators ability to model how a frisbee's tendency to tail is based on the amount of spin (or rotational inertia) it has during flight. Here we can see how a disc released with less rotational velocity will tail off much more significantly at the end of its flight.</p>
+
+				<h1 style="text-align: center">Large Tailing Due To Low Spin</h1>
+				<div class="row justify-content-md-center align-items-center" style="margin-bottom: 30px;">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/Y0ghJrMKazM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+
+				<h1>Aiming a Throw Using Optimization:</h1>
+				<p class="project-description">The simulator can also "learn" to throw a frisbee to a desired location (or through a hoop) using optimization techniques. To do so, the simulator must take in a desired position in space the user wants the frisbee to fly to. Then it will iteratively attempt to throw to the specified target, measure the error, and tweak the initial conditions of the throw to decrease the error until the flight succeeds.</p>
+
+				<p class="project-description">Below is a figure of the various attempts that the simulator makes before finally completing a throw that makes it through the hoop.</p>
+
+				<div class="row justify-content-md-center align-items-center">
+		    	<img src="../images/projects/frisbee/aiming.png" style="width: 50%;"/>
+		    </div>
+
+
+
+
+			</div>
+		</div>
+
+
+	</body>
+
+</html>
