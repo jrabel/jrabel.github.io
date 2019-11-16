@@ -22,7 +22,7 @@
 
 .project-title {
   font-family: 'Ubuntu', sans-serif;
-  font-size: 2em;
+  font-size: 3em;
   font-weight: bold;
 }
 
@@ -37,5 +37,9 @@ h1 {
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+pre {
+  color: #e83e8c;
 }
 
