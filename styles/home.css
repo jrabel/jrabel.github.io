@@ -1,4 +1,45 @@
-#background-container {
-	padding: 0;
+.self-portrait {
+	padding: 20px 0;
+	width: 100%;
+	object-fit: cover;
+}
+
+.home-photo {
+	width: 100%;
+	object-fit: cover;
+}
+
+.row {
 	margin: 0;
+}
+
+.home-photo-col {
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.photo-foreground {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: rgba(255, 255, 255, 0.25);
+}
+
+.transparent-photo-title {
+	font-size: 2em;
+	font-weight: bold;
+	font-family: 'Ubuntu', sans-serif;
+	padding: 10px 20px;
+}
+
+.photo-foreground:hover {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.0);
+	color: rgba(255, 255, 255, 1.0);
+	text-decoration: none;
 }

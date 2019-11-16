@@ -1,4 +1,23 @@
-#background-container {
-	padding: 0;
+.row {
 	margin: 0;
+}
+
+h2 {
+	font-size: 1.5em;
+	font-weight: bold;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+	font-size: 1.25em;
+	font-family: 'Ubuntu', sans-serif;
+	color: orange;
+}
+
+p {
+	font-size: 1em;
+	font-family: 'Ubuntu', sans-serif;
+	color: grey;
+	text-align: justify;
+}
 }

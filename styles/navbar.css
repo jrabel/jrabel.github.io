@@ -4,15 +4,21 @@ html, body {
   padding: 0;
 }
 
-#menu-title {
+#menu-title-box {
 	font-size: 1.5em;
 	font-weight: bold;
 	font-family: 'Ubuntu', sans-serif;
-	margin-bottom: 20px;
+	padding-right: 20px;
+	background-color: black;
+}
+
+#menu-title {
+	color: white;
+	padding: 5px;
 }
 
 .nav-item {
-	text-align: right;
+	padding: 0 10px;
 	font-family: 'Ubuntu', sans-serif;
   	font-size: 1em;
 }
@@ -23,30 +29,30 @@ a, a:hover {
 
 #menu-item-1:hover, #menu-item-1.active {
 	background-color: rgba(255, 0, 0, 0.25); /*red*/
-	border-right: 3px solid red;
+	border-bottom: 3px solid red;
 }
 
 #menu-item-2:hover, #menu-item-2.active {
 	background-color: rgba(255, 128, 0, 0.25); /*orange*/
-	border-right: 3px solid rgb(255, 128, 0);
+	border-bottom: 3px solid rgb(255, 128, 0);
 }
 #menu-item-3:hover, #menu-item-3.active {
 	background-color: rgba(255, 255, 0, 0.25); /*yellow*/
-	border-right: 3px solid rgba(255, 255, 0);
+	border-bottom: 3px solid rgba(255, 255, 0);
 }
 #menu-item-4:hover, #menu-item-4.active {
 	background-color: rgba(128, 255, 0, 0.25); /*light green*/
-	border-right: 3px solid rgba(128, 255, 0);
+	border-bottom: 3px solid rgba(128, 255, 0);
 }
 #menu-item-5:hover, #menu-item-5.active {
 	background-color: rgba(0, 255, 0, 0.25); /*green*/
-	border-right: 3px solid rgba(0, 255, 0);
+	border-bottom: 3px solid rgba(0, 255, 0);
 }
 #menu-item-6:hover, #menu-item-6.active {
 	background-color: rgba(0, 128, 255, 0.25); /*aqua*/
-	border-right: 3px solid rgba(0, 128, 255);
+	border-bottom: 3px solid rgba(0, 128, 255);
 }
 #menu-item-7:hover, #menu-item-7.active {
 	background-color: rgba(0, 0, 255, 0.25); /*blue*/
-	border-right: 3px solid rgba(0, 0, 255);
+	border-bottom: 3px solid rgba(0, 0, 255);
 }
