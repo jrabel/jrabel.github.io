@@ -32,31 +32,31 @@ a, a:hover {
 }
 
 #menu-item-1:hover, #menu-item-1.active {
-	background-color: rgba(255, 0, 0, 0.25); /*red*/
+	background-color: rgba(255, 0, 0, 0.25);
 	border-bottom: 3px solid red;
 }
 
 #menu-item-2:hover, #menu-item-2.active {
-	background-color: rgba(255, 128, 0, 0.25); /*orange*/
+	background-color: rgba(255, 128, 0, 0.25);
 	border-bottom: 3px solid rgb(255, 128, 0);
 }
 #menu-item-3:hover, #menu-item-3.active {
-	background-color: rgba(255, 255, 0, 0.25); /*yellow*/
+	background-color: rgba(255, 255, 0, 0.25);
 	border-bottom: 3px solid rgba(255, 255, 0);
 }
 #menu-item-4:hover, #menu-item-4.active {
-	background-color: rgba(128, 255, 0, 0.25); /*light green*/
+	background-color: rgba(128, 255, 0, 0.25);
 	border-bottom: 3px solid rgba(128, 255, 0);
 }
 #menu-item-5:hover, #menu-item-5.active {
-	background-color: rgba(0, 255, 0, 0.25); /*green*/
+	background-color: rgba(0, 255, 0, 0.25);
 	border-bottom: 3px solid rgba(0, 255, 0);
 }
 #menu-item-6:hover, #menu-item-6.active {
-	background-color: rgba(0, 128, 255, 0.25); /*aqua*/
+	background-color: rgba(0, 128, 255, 0.25); 
 	border-bottom: 3px solid rgba(0, 128, 255);
 }
 #menu-item-7:hover, #menu-item-7.active {
-	background-color: rgba(0, 0, 255, 0.25); /*blue*/
+	background-color: rgba(0, 0, 255, 0.25); 
 	border-bottom: 3px solid rgba(0, 0, 255);
 }
