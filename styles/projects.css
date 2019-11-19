@@ -19,13 +19,19 @@ a:hover {
 
 .project-thumbnail {
   width: 100%;
-  height: auto;
 }
 
 .project-title {
   font-family: 'Ubuntu', sans-serif;
   font-size: 3em;
   font-weight: bold;
+}
+
+.project-tile {
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #DDD;
+  border-radius: 20px;
 }
 
 .project-tile-title {
@@ -43,6 +49,7 @@ a:hover {
 }
 
 .project-tile-description {
+  margin: 0;
   font-family: 'Ubuntu', sans-serif;
   font-size: 0.75em;
   color: #777;
@@ -57,5 +64,49 @@ h1 {
 
 pre {
   color: #e83e8c;
+}
+
+.project-col-title-red {
+  padding: 20px 0 0 10px;
+  border-bottom: 3px solid red;
+  font-family: 'Ubuntu', sans-serif;
+  /* font-weight: bold; */
+  font-size: 2em;
+}
+.project-col-title-red:hover {
+  background-color: rgba(255, 0, 0, 0.25);
+}
+
+.project-col-title-blue {
+  padding: 20px 0 0 10px;
+  border-bottom: 3px solid blue;
+  font-family: 'Ubuntu', sans-serif;
+  /* font-weight: bold; */
+  font-size: 2em;
+}
+.project-col-title-blue:hover {
+  background-color: rgba(0, 0, 255, 0.25);
+}
+
+.project-col-title-green {
+  padding: 20px 0 0 10px;
+  border-bottom: 3px solid green;
+  font-family: 'Ubuntu', sans-serif;
+  /* font-weight: bold; */
+  font-size: 2em;
+}
+.project-col-title-green:hover {
+  background-color: rgba(0, 255, 0, 0.25);
+}
+
+.project-col-title-yellow {
+  padding: 20px 0 0 10px;
+  border-bottom: 3px solid yellow;
+  font-family: 'Ubuntu', sans-serif;
+  /* font-weight: bold; */
+  font-size: 2em;
+}
+.project-col-title-yellow:hover {
+  background-color: rgba(255, 255, 0, 0.25);
 }
 
