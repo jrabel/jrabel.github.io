@@ -10,7 +10,7 @@
   padding: 40px 20px;
   /* background-color: black; */
   color: black;
-  border-bottom: 3px solid yellow;
+  border-bottom: 3px solid black;
 }
 
 a:hover {
@@ -72,46 +72,39 @@ pre {
   margin: 0;
 }
 
-.project-col-title-red {
-  padding: 20px 0 0 10px;
-  border-bottom: 3px solid red;
+.project-col-title {
+  text-align: center;
+  padding: 20px 0 10px 0;
+  margin: 0;
   font-family: 'Ubuntu', sans-serif;
   /* font-weight: bold; */
   font-size: 2em;
-}
-.project-col-title-red:hover {
-  background-color: rgba(255, 0, 0, 0.25);
 }
 
-.project-col-title-blue {
-  padding: 20px 0 0 10px;
-  border-bottom: 3px solid blue;
-  font-family: 'Ubuntu', sans-serif;
-  /* font-weight: bold; */
-  font-size: 2em;
-}
-.project-col-title-blue:hover {
-  background-color: rgba(0, 0, 255, 0.25);
+.border-3 {
+  border: 3px solid;
 }
 
-.project-col-title-green {
-  padding: 20px 0 0 10px;
-  border-bottom: 3px solid green;
-  font-family: 'Ubuntu', sans-serif;
-  /* font-weight: bold; */
-  font-size: 2em;
-}
-.project-col-title-green:hover {
-  background-color: rgba(0, 255, 0, 0.25);
+.border-bottom-3 {
+  border-bottom: 3px solid;
 }
 
-.project-col-title-yellow {
-  padding: 20px 0 0 10px;
-  border-bottom: 3px solid yellow;
-  font-family: 'Ubuntu', sans-serif;
-  /* font-weight: bold; */
-  font-size: 2em;
+.orange-border {
+  border-color: orange;
 }
-.project-col-title-yellow:hover {
-  background-color: rgba(255, 255, 0, 0.25);
+
+.lightgreen-border {
+  border-color: lightgreen;
 }
+
+.lightblue-border {
+  border-color: lightblue;
+}
+
+.lightcoral-border {
+  border-color: lightcoral;
+}
+
+
+
+
