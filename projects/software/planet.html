@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Justin Abel - Projects</title>
+
+  <meta charset="UTF-8" />
+
+  <!-- STYLE -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="../../styles/navbar.css" rel="stylesheet" type="text/css">
+  <link href="../../styles/projects.css" rel="stylesheet" type="text/css">
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- JS -->
+  <script src="../../js/vendor/three.js"></script>
+  <script src="../../js/vendor/OrbitControls.js"></script>
+  <script src="../../js/perlin.js"></script>
+  <script src="../../js/planet.js"></script>
+
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-sm sticky-top" style="padding: 0; background-color: white">
+    <ul class="navbar-nav">
+      <li id="menu-title-box" class="nav-item">
+        <a id="menu-title" class="nav-link" href="../../index.html">Justin Abel</a>
+      </li>
+      <li id="menu-item-1" class="nav-item">
+        <a class="nav-link" href="../../index.html">Home</a>
+      </li>
+      <li id="menu-item-2" class="nav-item">
+        <a class="nav-link" href="../../about.html">About</a>
+      </li>
+      <li id="menu-item-3" class="nav-item active">
+        <a class="nav-link" href="../../projects.html">Projects</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="row h-100">
+    <div class="col-md-2">
+      <h1>Planet Generator</h1>
+      <p class="project-description" style="text-align: left;">A random planet is generated using Perlin noise applied
+        to the surface of a sphere. Each terrain patch in the mesh is colored using a height map to create a simple but
+        natural looking planetary surface. This project uses the Three.js graphics library to create this 3D scene.</p>
+    </div>
+    <div class="col-md-10">
+      <div id="planet-container" style="height:100%; width: 100%;"></div>
+    </div>
+  </div>
+
+  <script src="../../js/planet_generator.js"></script>
+
+</body>
+
+</html>
