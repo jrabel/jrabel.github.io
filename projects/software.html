@@ -40,112 +40,103 @@
 	<div class="row project-banner">
 		<h2 class="project-title">Software Projects</h2>
 	</div>
-	<div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
-		<div class="col-md-11">
 
-			<div id="project-tiles" class="container">
+	<div class="row" style="margin: 30px 50px;">
 
-				<div class="row">
-
-					<div class="col-md-3 project-col">
-						<div class="row">
-							<a class="project-tile" href="software/planet.html">
-								<img class="project-thumbnail" src="../images/projects/software/planet/planet_square.png">
-								<h1 class="project-tile-title">Planet Generator</h1>
-								<p class="project-tile-description">A random planet is generated using Perlin noise applied
-									to the surface of a sphere. Each terrain patch in the mesh is colored using a height map to create a
-									simple but
-									natural looking planetary surface. This project uses the Three.js graphics library to create this 3D
-									scene.</p>
-							</a>
-						</div>
-					</div>
-
-					<div class="col-md-3 project-col">
-						<div class="row">
-							<a class="project-tile" href="software/inverse-kinematics.html">
-								<img class="project-thumbnail" src="../images/projects/software/inv_kin/robot_arm_obstacles.png">
-								<h1 class="project-tile-title">Inverse Kinematics Using Optimization</h1>
-								<p class="project-tile-description">Through the use of function optimization in MATLAB, the position and
-									orientation of a 3-dimensional snake robot is controlled in order to reach into an environment and
-									grasp an object. The snake robot consists of a serial chain of kinematic links, of arbitrary number
-									and
-									length, where each joint is controlled with a set of Euler angles (roll, pitch, yaw). The environment
-									is filled with spherical obstacles that the robot must avoid in reaching the obstacle.</p>
-							</a>
-						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="row">
-							<a class="project-tile" href="software/cartpole.html">
-								<img class="project-thumbnail" src="../images/projects/software/cartpole/cartpole_diagram.png">
-								<h1 class="project-tile-title">Inverted Pendulum Control</h1>
-								<p class="project-tile-description">This project regards dynamics, control, and robot learning
-									techniques
-									to both model and control a cart pole (inverted pendulum) system through the use of a simulated
-									dynamics
-									engine. The cart has a mass of 1kg and a horizontal rocket thruster to move in the horizontal
-									x-direction. A pole is attached to the cart with a joint. It has a mass of 0.1kg and is 1m long (and
-									is
-									infinitely thin).</p>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="row">
-							<a class="project-tile" href="software/state-estimation.html">
-								<img class="project-thumbnail" src="../images/projects/software/state_est/simulation_not_landed.png">
-								<h1 class="project-tile-title">3D State Estimation and Control</h1>
-								<p class="project-tile-description">This project deals with tracking/representing the 3D orientation and
-									dynamics of an “alien artifact” tumbling through space. The goal is to use markers on the corners of
-									the
-									artifact to estimate its dynamics and future trajectory. Finally, we are to control a spacecraft to
-									land
-									just above the surface of the artifact as it tumbles through space.</p>
-							</a>
-						</div>
-					</div>
-
-					<div class="col-md-3">
-						<div class="row">
-							<a class="project-tile" href="software/extended-kalman-filter.html">
-								<img class="project-thumbnail" src="../images/projects/software/ekf/noisy_markers.png">
-								<h1 class="project-tile-title">Extended Kalman Filtering</h1>
-								<p class="project-tile-description">This project is an extension of "3D State Estimation and Control" as
-									it deals with estimating the state of an “alien artifact” tumbling through space. However, here we
-									focus
-									on state estimation in the presence of sensor noise and occlusion. The goal is to use an Extended
-									Kalman
-									filter to produce optimal estimates of the position, orientation, and velocity of the artifact using
-									noisy data of the markers on the corners of the artifact.</p>
-							</a>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-md-3">
-							<div class="row">
-								<a class="project-tile" href="software/frisbee-simulator.html">
-									<img class="project-thumbnail" src="../images/projects/software/frisbee/sim_interface.png">
-									<h1 class="project-tile-title">Frisbee Simulator</h1>
-									<p class="project-tile-description">This Frisbee Simulator accurately models the flight of a frisbee.
-										By
-										deriving the translational and rotational dynamics of a frisbee flying through the air, I developed
-										equations of motion that were then mapped to a state space model that was integrated forward in time
-										using MATLAB to solve for the pose of the disc as a function of time. I also used optimization
-										techniques to solve for an initial set of throwing parameters to aim a frisbee throw to a target
-										somewhere in 3D space. More details regarding my project, including videos, can be found below.</p>
-								</a>
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-
+		<div class="col-md-3 project-col">
+			<div class="row">
+				<a class="project-tile" href="software/planet.html">
+					<img class="project-thumbnail" src="../images/projects/software/planet/planet_square.png">
+					<h1 class="project-tile-title">Planet Generator</h1>
+					<p class="project-tile-description">A random planet is generated using Perlin noise applied
+						to the surface of a sphere. Each terrain patch in the mesh is colored using a height map to create a
+						simple but
+						natural looking planetary surface. This project uses the Three.js graphics library to create this 3D
+						scene.</p>
+				</a>
 			</div>
 		</div>
+
+		<div class="col-md-3 project-col">
+			<div class="row">
+				<a class="project-tile" href="software/inverse-kinematics.html">
+					<img class="project-thumbnail" src="../images/projects/software/inv_kin/robot_arm_obstacles.png">
+					<h1 class="project-tile-title">Inverse Kinematics Using Optimization</h1>
+					<p class="project-tile-description">Through the use of function optimization in MATLAB, the position and
+						orientation of a 3-dimensional snake robot is controlled in order to reach into an environment and
+						grasp an object. The snake robot consists of a serial chain of kinematic links, of arbitrary number
+						and
+						length, where each joint is controlled with a set of Euler angles (roll, pitch, yaw). The environment
+						is filled with spherical obstacles that the robot must avoid in reaching the obstacle.</p>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="row">
+				<a class="project-tile" href="software/cartpole.html">
+					<img class="project-thumbnail" src="../images/projects/software/cartpole/cartpole_diagram.png">
+					<h1 class="project-tile-title">Inverted Pendulum Control</h1>
+					<p class="project-tile-description">This project regards dynamics, control, and robot learning
+						techniques
+						to both model and control a cart pole (inverted pendulum) system through the use of a simulated
+						dynamics
+						engine. The cart has a mass of 1kg and a horizontal rocket thruster to move in the horizontal
+						x-direction. A pole is attached to the cart with a joint. It has a mass of 0.1kg and is 1m long (and
+						is
+						infinitely thin).</p>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="row">
+				<a class="project-tile" href="software/state-estimation.html">
+					<img class="project-thumbnail" src="../images/projects/software/state_est/simulation_not_landed.png">
+					<h1 class="project-tile-title">3D State Estimation and Control</h1>
+					<p class="project-tile-description">This project deals with tracking/representing the 3D orientation and
+						dynamics of an “alien artifact” tumbling through space. The goal is to use markers on the corners of
+						the
+						artifact to estimate its dynamics and future trajectory. Finally, we are to control a spacecraft to
+						land
+						just above the surface of the artifact as it tumbles through space.</p>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="row">
+				<a class="project-tile" href="software/extended-kalman-filter.html">
+					<img class="project-thumbnail" src="../images/projects/software/ekf/noisy_markers.png">
+					<h1 class="project-tile-title">Extended Kalman Filtering</h1>
+					<p class="project-tile-description">This project is an extension of "3D State Estimation and Control" as
+						it deals with estimating the state of an “alien artifact” tumbling through space. However, here we
+						focus
+						on state estimation in the presence of sensor noise and occlusion. The goal is to use an Extended
+						Kalman
+						filter to produce optimal estimates of the position, orientation, and velocity of the artifact using
+						noisy data of the markers on the corners of the artifact.</p>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="row">
+				<a class="project-tile" href="software/frisbee-simulator.html">
+					<img class="project-thumbnail" src="../images/projects/software/frisbee/sim_interface.png">
+					<h1 class="project-tile-title">Frisbee Simulator</h1>
+					<p class="project-tile-description">This Frisbee Simulator accurately models the flight of a frisbee.
+						By
+						deriving the translational and rotational dynamics of a frisbee flying through the air, I developed
+						equations of motion that were then mapped to a state space model that was integrated forward in time
+						using MATLAB to solve for the pose of the disc as a function of time. I also used optimization
+						techniques to solve for an initial set of throwing parameters to aim a frisbee throw to a target
+						somewhere in 3D space. More details regarding my project, including videos, can be found below.</p>
+				</a>
+			</div>
+		</div>
+
+	</div>
 
 
 </body>
