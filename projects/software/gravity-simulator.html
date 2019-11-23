@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Justin Abel - Projects</title>
+
+  <meta charset="UTF-8" />
+
+  <!-- STYLE -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="../../styles/navbar.css" rel="stylesheet" type="text/css">
+  <link href="../../styles/projects.css" rel="stylesheet" type="text/css">
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+  <!-- JS -->
+  <script src="../../js/vendor/three.js"></script>
+  <script src="../../js/vendor/OrbitControls.js"></script>
+  <script src="../../js/body.js"></script>
+
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-sm sticky-top" style="padding: 0; background-color: white">
+    <ul class="navbar-nav">
+      <li id="menu-title-box" class="nav-item">
+        <a id="menu-title" class="nav-link" href="../../index.html">Justin Abel</a>
+      </li>
+      <li id="menu-item-1" class="nav-item">
+        <a class="nav-link" href="../../index.html">Home</a>
+      </li>
+      <li id="menu-item-2" class="nav-item">
+        <a class="nav-link" href="../../about.html">About</a>
+      </li>
+      <li id="menu-item-3" class="nav-item active">
+        <a class="nav-link" href="../../projects.html">Projects</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="row h-100">
+    <div class="col-md-2">
+      <h1>Gravity Simulator</h1>
+      <p class="project-description" style="text-align: left;">A gravity simulator.</p>
+    </div>
+    <div class="col-md-10">
+      <div id="gravity-container" style="height:100%; width: 100%;"></div>
+    </div>
+  </div>
+
+  <script src="../../js/gravity_simulator.js"></script>
+
+</body>
+
+</html>
