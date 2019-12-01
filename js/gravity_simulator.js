@@ -21,7 +21,7 @@ function init() {
   createControls();
   createLights();
   createBodies();
-  createForceVectors();
+  // createForceVectors();
   createRenderer();
 
   renderer.setAnimationLoop(() => {
@@ -118,7 +118,7 @@ function update() {
     bodies[i].update(delta);
   }
 
-  updateForceVecs();
+  // updateForceVecs();
 
 }
 

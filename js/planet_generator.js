@@ -5,7 +5,8 @@ let controls;
 let renderer;
 let scene;
 
-const mixers = [];
+let planet;
+
 const clock = new THREE.Clock();
 
 function init() {
@@ -18,7 +19,6 @@ function init() {
   createCamera();
   createControls();
   createLights();
-  // loadModels();
   createPlanet();
   createRenderer();
 
@@ -60,53 +60,10 @@ function createPlanet() {
   var sphereRadius = 3;
   var sphereDetail = 7;
 
-  const planet = new Planet(sphereRadius, sphereDetail);
+  planet = new Planet(sphereRadius, sphereDetail);
 
   scene.add(planet.mesh);
 
-}
-
-function loadModels() {
-
-  const loader = new THREE.GLTFLoader();
-
-  // A reusable function to set up the models. We're passing in a position parameter
-  // so that they can be individually placed around the scene
-  const onLoad = (gltf, position) => {
-
-    const model = gltf.scene.children[0];
-    model.position.copy(position);
-    model.scale.set(0.05, 0.05, 0.05);
-
-    const animation = gltf.animations[0];
-
-    const mixer = new THREE.AnimationMixer(model);
-    mixers.push(mixer);
-
-    const action = mixer.clipAction(animation);
-    action.play();
-
-    scene.add(model);
-
-  };
-
-  // the loader will report the loading progress to this function
-  const onProgress = () => { };
-
-  // the loader will send any error messages to this function, and we'll log
-  // them to to console
-  const onError = (errorMessage) => { console.log(errorMessage); };
-
-  // load the first model. Each model is loaded asynchronously,
-  // so don't make any assumption about which one will finish loading first
-  const parrotPosition = new THREE.Vector3(-2, 2, 9);
-  loader.load('models/Parrot.glb', gltf => onLoad(gltf, parrotPosition), onProgress, onError);
-
-  const flamingoPosition = new THREE.Vector3(7.5, 2, -4);
-  loader.load('models/Flamingo.glb', gltf => onLoad(gltf, flamingoPosition), onProgress, onError);
-
-  const storkPosition = new THREE.Vector3(-8, 2, -2);
-  loader.load('models/Stork.glb', gltf => onLoad(gltf, storkPosition), onProgress, onError);
 }
 
 function createRenderer() {
@@ -130,11 +87,7 @@ function update() {
 
   const delta = clock.getDelta();
 
-  for (const mixer of mixers) {
-
-    mixer.update(delta);
-
-  }
+  planet.mesh.rotation.y += 0.005;
 
 }
 
