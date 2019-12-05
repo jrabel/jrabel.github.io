@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Justin Abel - Projects</title>
+
+	<meta charset="UTF-8" />
+
+	<!-- STYLE -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="../../styles/navbar.css" rel="stylesheet" type="text/css">
+	<link href="../../styles/projects.css" rel="stylesheet" type="text/css">
+
+	<!-- FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-sm sticky-top" style="padding: 0; background-color: white">
+		<ul class="navbar-nav">
+			<li id="menu-title-box" class="nav-item">
+				<a id="menu-title" class="nav-link" href="../../index.html">Justin Abel</a>
+			</li>
+			<li id="menu-item-1" class="nav-item">
+				<a class="nav-link" href="../../index.html">Home</a>
+			</li>
+			<li id="menu-item-2" class="nav-item">
+				<a class="nav-link" href="../../about.html">About</a>
+			</li>
+			<li id="menu-item-3" class="nav-item active">
+				<a class="nav-link" href="../../projects.html">Projects</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
+
+		<div class="row justify-content-md-center">
+			<img src="../../images/projects/hardware/spectrometer/spectrometer_ortho.png"
+				style="height: 300px; margin: 10px;" />
+			<img src="../../images/projects/hardware/spectrometer/spectrometer_system.JPG"
+				style="height: 300px; margin: 10px;" />
+		</div>
+		<div class="col-md-8">
+			<div class="row justify-content-md-center">
+				<h1 class="project-title" style="margin: 20px 0; text-align: center">Field Reflectance Spectrometer</h1>
+			</div>
+
+			<p class="project-description"><b>Project Overview:</b></p>
+			<p class="project-description">As a part of my Masters research work at Carnegie Mellon
+				University, I developed portable reflectance spectrometer system capable of being mounted to an autonomous
+				robotic system to take rapid spectral measurements of the stalks and leaves of various crops. This page details
+				the mechanical design, sensor selections, and fabrication process of creating this <b>field reflectance
+					spectrometer</b> system.
+			</p>
+
+			<p class="project-description"><b>Spectroscopy Overview:</b></p>
+			<p class="project-description">At the broadest level, spectroscopy refers to the
+				measurement of
+				electromagnetic radiation as a function of wavelength or frequency due to
+				some physical phenomenon. More specifically, the field of
+				spectroscopy attempts to study the specific interaction between matter and light to try to understand the
+				atomic and molecular structure and chemical composition of various materials (such as moisture, chlorophyll, and
+				protein content).
+			</p>
+			<p class="project-description">More specifically, reflectance
+				spectroscopy is the study of reflected or scattered light from a
+				material. Reflectance spectroscopy has a few
+				key advantages that make it particularly fit for in-field, automated measurements. Firstly, the process is
+				nondestructive to the sample. A reflectance spectrometer can simply be placed up to the surface of a material
+				to take a reading, whereas other spectroscopy techniques (absorption and emission spectroscopy)
+				usually require lengthy
+				and destructive material preparation that must be performed in a laboratory setting. Furthermore, reflectance
+				spectroscopy is relatively cheap to perform and readings can be done in a matter of seconds. Therefore,
+				reflectance spectroscopy was chosen as a technique for collecting crop data by the autonomous ground robot
+				developed in conjunction with my research work at the Robotics Institute at Carnegie Mellon.
+			</p>
+
+			<p class="project-description">Portable reflectance spectrometers contain three basic
+				components used for the measurement of light: a light source, a diffraction grating, and a light sensor or
+				detector. The light source provides the initial introduction of radiation that is projected onto the sample. It
+				is crucial for the light source to emit a continuous spectrum of radiation that covers the wavelengths measured
+				by the spectrometer. The diffraction grating takes in a stream of broadband light and refracts the
+				different wavelengths of light at slightly different angles, in essence separating the light so that the sensor
+				in the spectrometer can measure the intensity of individual wavelengths. Lastly, the light sensor or
+				detector is used to measure the intensity of light projected onto it. These three basic components and how
+				they fit into the general construction of a spectrometer can be seen in the figures below. The right figure
+				demonstrates a spectrometer system that must be placed on the surface of the sample. The left figure demostrates
+				a system that uses a bifurcated fiber optic cable to collect reflected light from a sample.</p>
+
+			<div class="row justify-content-md-center align-items-center">
+				<div class="col-6">
+					<img src="../../images/projects/hardware/spectrometer/reflectance_spec_graphic.PNG" style="height: 400px" />
+					<p class="project-description"><i>Basic construction of a reflectance spectrometer</i></p>
+				</div>
+				<div class="col-6">
+					<img src="../../images/projects/hardware/spectrometer/reflectance_spec_fibers_graphic.PNG"
+						style="height: 400px" />
+					<p class="project-description"><i>Reflectance spectrometer with fiber optic light collection</i></p>
+				</div>
+			</div>
+
+
+			<h1>Light Source Design:</h1>
+
+			<div class="row justify-content-md-center align-items-center">
+				<img src="../../images/projects/hardware/spectrometer/light_source_ortho.PNG"
+					style="height: 300px; margin-bottom: 20px;" />
+			</div>
+
+			<p class="project-description">The selection of a proper light source used in a spectrometer is crucial to
+				the accuracy and
+				consistency of spectral reflectance measurements of a sample. At the most basic level, the light source
+				must emit electromagnetic radiation throughout all wavelength bands measured by the sensors in the
+				system. Although there are many robust, high quality light source assemblies on the market
+				that are
+				designed and optimized for spectroscopy applications, these assemblies are often expensive and rather large when
+				considering the strict
+				size constraints on this spectrometer project. Thus I ultimately decided to design a custom light source
+				for the reflectance spectrometer system.
+			</p>
+
+			<p class="project-description"><b>Bulb Selection:</b></p>
+
+			<p class="project-description">
+				I selected the Thorlabs HEP3965 Broadband IR Tungsten Bulb, shown in the figure below. This bulb produces a
+				broadband output from about 400 to 5000 nm at a color temperature of
+				1900 K, resulting in a peak intensity right around 1500 nm. The bulb comes mounted in a small TO-8 can
+				with a reflector placed behind the filament for greater forward facing luminous flux. The bulb can be
+				driven up to 3.5 V with a maximum current of 2 A resulting in a maximum power rating of 7 W.
+				Furthermore, this bulb comes with a threaded mounting adapter allowing for easy
+				installation into Thorlabs lens tubes. These components allow for greater precision in filament alignment and
+				imaging onto the end of the optical fiber.
+			</p>
+
+			<div class="row justify-content-md-center align-items-center">
+				<img src="../../images/projects/hardware/spectrometer/bulb_and_spectral_output.PNG" style="height: 300px" />
+			</div>
+			<div class="row justify-content-md-center align-items-center">
+				<p class="project-description"><i>Thorlabs broadband IR tungsten bulb and spectral output </i></p>
+			</div>
+
+			<p class="project-description"><b>Light Source Assembly:</b></p>
+
+			<div class="row justify-content-md-center align-items-center">
+				<img src="../../images/projects/hardware/spectrometer/light source exploded labeled.png"
+					style="height: 300px" />
+			</div>
+
+			<ul class="project-description">
+				<li>(a) <b>Thorlabs S120-SMA</b> - Lens tube cap with internal SM1 threading and SMA fiber connector</li>
+				<li>(b) <b>Thorlabs SM1RC and TR1</b> - SM1 Lens tube slip ring and vertical mounting post</li>
+				<li>(c) <b>Thorlabs SM1S20</b> - 2" Long SM1 lens tube spacer</li>
+				<li>(d) <b>Thorlabs CMRR</b> - Retaining ring for SM1 lens tube</li>
+				<li>(e) <b>Thorlabs LB1761</b> - N-BK7 Bi-Convex Lens with 1” diameter and 25.4 mm focal length</li>
+				<li>(f) <b>Thorlabs LB1761-ML Housing</b> - Mounting tube for lens and retaining ring</li>
+				<li>(g) <b>Thorlabs HSLT2</b> - Passive heat sink lens tube with internal SM1 threading</li>
+				<li>(h) <b>Thorlabs HEP3965</b> - Broadband infrared tungsten bulb</li>
+				<li>(i) <b>Thorlabs HEPM</b> - Mounting adapter for HEP3965 bulb</li>
+			</ul>
+
+			<p class="project-description">
+				As seen in the exploded view above, the tungsten bulb <b>(h)</b> rests inside a thick, circular adapter plate
+				<b>(i)</b>
+				with external threading. This adapter plate is then mounted inside a heat sink style lens tube <b>(g)</b> with
+				many radial fins for added heat expulsion and greater convective cooling during use. Because the interior
+				of the heat sink lens tube and the exterior of the bulb adapter plate are both finely threaded, the position of
+				the bulbs filament along the axis of the tube can be precisely controlled. Attached to the front face of the
+				heat sink lens tube is a short mounting tube <b>(f)</b> for an N-BK7, a type of borosilicate glass, biconvex
+				lens
+				<b>(e)</b>. The next component along the optical axis is a two inch long lens tube <b>(c)</b> to properly space
+				the lens
+				from the optical fiber. On the end of the lens tube spacer is a threaded cap <b>(a)</b> with an SMA fiber
+				connecter to attach a fiber optic cable for light collection. The entire assembly is held in space by a
+				vertical mounting post with a large slip ring <b>(b)</b> that tightly hugs the two inch lens tube. This vertical
+				mounting post can be fastened to the base plate of the spectrometer housing for rigid attachment within
+				the larger system.
+			</p>
+
+			<h1>Spectral Sensor Selection:</h1>
+
+
+
+
+
+
+
+		</div>
+
+	</div>
+
+
+
+
+
+</body>
+
+</html>
