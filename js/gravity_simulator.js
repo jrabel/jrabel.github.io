@@ -36,7 +36,7 @@ function init() {
 function createCamera() {
 
   camera = new THREE.PerspectiveCamera(35, container.clientWidth / container.clientHeight, 0.1, 100);
-  camera.position.set(0, 0, 20);
+  camera.position.set(0, 0, 30);
 
 }
 
@@ -63,14 +63,19 @@ function createBodies() {
   const mass3 = 10;
 
   var sphere1 = new Body(1, "red", mass1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-  var sphere2 = new Body(2, "blue", mass2, 5, 0, 0, 0, 1, 0, 0, 0, 0);
+  var sphere2 = new Body(2, "blue", mass2, 4.5, 0, 0, 0, 1, 0, 0, 0, 0);
   var sphere3 = new Body(3, "green", mass3, -5, 0, 0, 0, -1, 0, 0, 0, 0);
 
   bodies = [sphere1, sphere2, sphere3];
 
   scene.add(sphere1.getMesh());
+  scene.add(sphere1.getTrail());
+
   scene.add(sphere2.getMesh());
+  scene.add(sphere2.getTrail());
+
   scene.add(sphere3.getMesh());
+  scene.add(sphere3.getTrail());
 
 }
 

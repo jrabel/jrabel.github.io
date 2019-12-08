@@ -8,9 +8,10 @@ class Body {
 		this.radius = 0.5;
 		this.heightSegments = 32;
 		this.widthSegments = 32;
+		this.c = c;
 
 		this.geometry = new THREE.SphereBufferGeometry(this.radius, 20, 20);
-		this.material = new THREE.MeshStandardMaterial({ color: c });
+		this.material = new THREE.MeshStandardMaterial({ color: this.c });
 		this.mesh = new THREE.Mesh(this.geometry, this.material);
 
 		this.mass = m;
@@ -24,10 +25,36 @@ class Body {
 		this.ddx = ddx;
 		this.ddy = ddy;
 		this.ddz = ddz;
+
+		this.initializeTrail();
+	}
+
+	initializeTrail() {
+		var trailShown = 2000;
+
+		var trailGeometry = new THREE.BufferGeometry();
+		var positions = new Float32Array(3 * trailShown);
+		for (var i = 0; i < positions.length; i += 3) {
+			positions.set([this.x, this.y, this.z], i);
+		}
+		trailGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+		var trailMaterial = new THREE.LineBasicMaterial({
+			color: this.c,
+			linewidth: 1
+		});
+
+		this.trail = new THREE.Line(trailGeometry, trailMaterial);
+		this.trail.position.set(0, 0, 0);
+		this.trail.frustumCulled = false; // critical to avoid blackouts!
 	}
 
 	getMesh() {
 		return this.mesh;
+	}
+
+	getTrail() {
+		return this.trail;
 	}
 
 	calculateState(bodies) {
@@ -46,6 +73,12 @@ class Body {
 		this.mesh.position.x = this.x;
 		this.mesh.position.y = this.y;
 		this.mesh.position.z = this.z;
+
+		// update trail
+		var trailGeometry = this.trail.geometry;
+		trailGeometry.attributes.position.array.copyWithin(3);
+		trailGeometry.attributes.position.set([this.x, this.y, this.z], 0);
+		this.trail.geometry.attributes.position.needsUpdate = true;
 	}
 
 	calculateAccelerations(bodies) {
