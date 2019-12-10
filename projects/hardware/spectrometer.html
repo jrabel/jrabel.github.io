@@ -42,7 +42,7 @@
 		<div class="row justify-content-md-center">
 			<img src="../../images/projects/hardware/spectrometer/spectrometer_ortho.png"
 				style="height: 300px; margin: 10px;" />
-			<img src="../../images/projects/hardware/spectrometer/spectrometer_system.JPG"
+			<img src="../../images/projects/hardware/spectrometer/leaf_gripper_infield_closeup.PNG"
 				style="height: 300px; margin: 10px;" />
 		</div>
 		<div class="col-md-8">
@@ -50,8 +50,22 @@
 				<h1 class="project-title" style="margin: 20px 0; text-align: center">Field Reflectance Spectrometer</h1>
 			</div>
 
+			<h1>Contents:</h1>
+			<ul class="project-description">
+				<li><a href="#overview">Overview</a></li>
+				<li><a href="#system-requirements">System Requirements</a></li>
+				<li><a href="#light-source-design">Light Source Design</a></li>
+				<li><a href="#sensor-selection">Spectral Sensor Selection</a></li>
+				<li><a href="#system-design">Mechanical and Electrical System Design</a></li>
+			</ul>
+
+			<a name="overview">
+				<h1>Overview:</h1>
+			</a>
+
 			<p class="project-description"><b>Project Overview:</b></p>
-			<p class="project-description">As a part of my Masters research work at Carnegie Mellon
+			<p class="project-description">
+				As a part of my Masters research work at Carnegie Mellon
 				University, I developed portable reflectance spectrometer system capable of being mounted to an autonomous
 				robotic system to take rapid spectral measurements of the stalks and leaves of various crops. This page details
 				the mechanical design, sensor selections, and fabrication process of creating this <b>field reflectance
@@ -59,7 +73,8 @@
 			</p>
 
 			<p class="project-description"><b>Spectroscopy Overview:</b></p>
-			<p class="project-description">At the broadest level, spectroscopy refers to the
+			<p class="project-description">
+				At the broadest level, spectroscopy refers to the
 				measurement of
 				electromagnetic radiation as a function of wavelength or frequency due to
 				some physical phenomenon. More specifically, the field of
@@ -80,7 +95,8 @@
 				developed in conjunction with my research work at the Robotics Institute at Carnegie Mellon.
 			</p>
 
-			<p class="project-description">Portable reflectance spectrometers contain three basic
+			<p class="project-description">
+				Portable reflectance spectrometers contain three basic
 				components used for the measurement of light: a light source, a diffraction grating, and a light sensor or
 				detector. The light source provides the initial introduction of radiation that is projected onto the sample. It
 				is crucial for the light source to emit a continuous spectrum of radiation that covers the wavelengths measured
@@ -104,15 +120,51 @@
 				</div>
 			</div>
 
+			<a name="system-requirements">
+				<h1>System Requirements:</h1>
+			</a>
 
-			<h1>Light Source Design:</h1>
+			<p class="project-description">
+				A basic set of requirements for a portable, in-field reflectance spectrometer system was first created in order
+				to drive most of the electrical and mechanical design decisions.
+			</p>
+
+			<ul class="project-description">
+				<li><b>Mass: </b>Less than 5 kg</li>
+				<li><b>Volume: </b>Less than 5,000 cubic centimeters (no more than 30 cm in any dimension)</li>
+				<li><b>Power: </b>Less than 50 W to operate</li>
+				<li><b>Wavelength Range: </b>Must cover at least 400 - 2400 nm</li>
+				<li><b>Spectral Resolution: </b>Less than 2nm in VIS band, 5 nm in NIR band, 10 nm in SWIR band</li>
+				<li><b>Cost: </b>Less than $25,000 for entire system</li>
+			</ul>
+
+			<p class="project-description">
+				The maximum mass of the system is mainly determined to allow for practical in field use. Anything
+				above 5 kilograms would be too heavy and cumbersome to allow for quick and easy
+				plant measurements. The maximum volume was determined in a similar way, as anything above 5000
+				cubic centimeters or 30 cm in any dimension would be too bulky to easily transport manually throughout
+				the field. The maximum power is set to limit the draw from the robot’s on board battery while also being
+				large enough to power the spectrometers as well as a potentially high power incandescent light source.
+				The wavelength range is set to cover the visible light band (380 - 750 nm), the near infrared band or NIR
+				(750 - 1500 nm), and most of the short wavelength infrared band or SWIR (1500 - 3000 nm). The spectral
+				resolution is set at slightly above the industry standard to allow for high resolution reflectance light
+				analysis. Lastly, a maximum cost is set at $25,000 to allow for quality components while also forcing the
+				design to remain relatively low cost (compared to some high end sensors) for marketability and economic
+				constraints from this project’s funding source.
+
+			</p>
+
+			<a name="light-source-design">
+				<h1>Light Source Design:</h1>
+			</a>
 
 			<div class="row justify-content-md-center align-items-center">
 				<img src="../../images/projects/hardware/spectrometer/light_source_ortho.PNG"
 					style="height: 300px; margin-bottom: 20px;" />
 			</div>
 
-			<p class="project-description">The selection of a proper light source used in a spectrometer is crucial to
+			<p class="project-description">
+				The selection of a proper light source used in a spectrometer is crucial to
 				the accuracy and
 				consistency of spectral reflectance measurements of a sample. At the most basic level, the light source
 				must emit electromagnetic radiation throughout all wavelength bands measured by the sensors in the
@@ -164,7 +216,8 @@
 			</ul>
 
 			<p class="project-description">
-				As seen in the exploded view above, the tungsten bulb <b>(h)</b> rests inside a thick, circular adapter plate
+				As seen in the exploded view above, the tungsten bulb <b>(h)</b> rests inside a
+				thick, circular adapter plate
 				<b>(i)</b>
 				with external threading. This adapter plate is then mounted inside a heat sink style lens tube <b>(g)</b> with
 				many radial fins for added heat expulsion and greater convective cooling during use. Because the interior
@@ -181,7 +234,131 @@
 				the larger system.
 			</p>
 
-			<h1>Spectral Sensor Selection:</h1>
+			<a name="sensor-selection">
+				<h1>Spectral Sensor Selection:</h1>
+			</a>
+
+			<p class="project-description">
+				A variety of spectral sensors were surveyed, and the primary list that was considered is presented in the table
+				below (ordered by price). The sensors that were ultimately selected for this application are highlighted and
+				presented below the table.
+			</p>
+
+			<div class="row justify-content-md-center align-items-center">
+				<img src="../../images/projects/hardware/spectrometer/spectral_sensor_selection.jpg" style="width: 100%" />
+			</div>
+
+			<p class="project-description">
+				Ultimately, three spectral sensors were selected to be packaged within the overall reflectance spectrometer
+				system in order to cover the entire wavelength band required by the project. It should be noted that the ASD
+				FieldSpec 4 Standard-Res is an ideal product that captures the full
+				wavelength range, has a small spectral resolution, and operates just below the maximum
+				power limit. This system would be a fantastic choice for our research project's application, however the cost is
+				well above the budget, thus a more creative and
+				cheaper solution is needed.
+			</p>
+
+			<p class="project-description">
+				<b>Ocean Optics FLAME-VIS-NIR</b> (Visible Light Band):
+				This sensor was selected for its great spectral resolution, low mass and its packaged set of software tools for
+				operation and data analysis.
+			</p>
+
+			<p class="project-description">
+				<b>Ocean Optics FLAME-NIR</b> NIR Light Band):
+				This sensor was selected for its full coverage of the NIR bandwidth, great spectral resolution, and low mass.
+				Furthermore, it can easily be paired with the
+				FLAME-VIS-NIR system from Ocean Optics shown above.
+			</p>
+
+			<p class="project-description">
+				<b>TI NIRScan</b> (SWIR Light Band):
+				This sensor was selected as it appears to be the leading inexpensive, compact SWIR sensor on the market. It is
+				relatively cheap and comes with unique, customizable hardware and software to configure the wavelength range and
+				spectral resolution.
+			</p>
+
+			<a name="system-design">
+				<h1>Mechanical and Electrical System Design:</h1>
+			</a>
+
+			<div class="row justify-content-md-center">
+				<div class="col-6">
+					<img src="../../images/projects/hardware/spectrometer/spectrometer_ortho.png"
+						style="width: 100%; margin: 10px;" />
+				</div>
+				<div class="col-6">
+					<img src="../../images/projects/hardware/spectrometer/spectrometer_system.JPG"
+						style="width: 80%; margin: 10px;" />
+				</div>
+			</div>
+
+			<p class="project-description"><b>Mechanical:</b></p>
+			<p class="project-description">
+				The overall reflectance spectrometer assembly is responsible for housing the three spectrometers,
+				the custom light source, and all relevant electronics such as a USB hub, power regulators, and cooling
+				systems. A final rendering is shown below next to a photo of the fully assembled system. The aluminum housing is
+				26 cm in length, 16.5 cm in width, and 11.5 cm in height for a total volume of 4933.5 cubic centimeters, or just
+				below the maximum volume specified. The overall mass of the system is about 3.5 kg which is well below the
+				maximum mass specified. A breakdown of the major components within the system is shown below:
+			</p>
+
+			<div class="row justify-content-md-center">
+				<img src="../../images/projects/hardware/spectrometer/spectrometer_interior_labeled.png"
+					style="height: 300px" />
+			</div>
+
+			<ul class="project-description">
+				<li><b>(a)</b> Custom broadband light source</li>
+				<li><b>(b)</b> Ocean Optics FLAME-VIS-NIR spectrometer</li>
+				<li><b>(c)</b> Ocean Optics FLAME-NIR spectrometer</li>
+				<li><b>(d)</b> Ethernet and USB bulkhead connectors</li>
+				<li><b>(e)</b> TI NIRScan spectrometer</li>
+			</ul>
+
+			<p class="project-description">
+				The overall system housing is built out of six aluminum panels, which account for about 33% of
+				the total mass, bolted together with M3 x 10 socket head cap screws that are slightly recessed into the
+				faces of each panel to create a smooth, flat surface on all sides. Given the need for easy access to the fiber
+				optic inputs of the three spectrometers from the exterior, two seperate 3D printed adapter plates are
+				mounted to the front panel of the system that protrude into the interior of the housing with small openings
+				for the three SMA fiber optic connectors. The fiber optic connector for the light source is accessible
+				through a small hole on the left side panel of the housing.
+			</p>
+			<p class="project-description">
+				USB and ethernet connections are provided
+				through two rugged and sealable bulkhead connectors on the front panel. The TI NIRScan spectrometer is
+				digitally interfaced over ethernet while the two Ocean Optics spectrometers are accessed over USB.
+				A sealed four pin electrical connector is mounted to the back panel of the housing to provide
+				power to the entire system. Additionally, a rocker switch is positioned next to this connector to turn on
+				and shut off power to the spectrometer. Two fans are also mounted to the inside face of the back panel to
+				provide convective air flow to cool the heat sink around the light source. Similarly, two fine filter screens
+				are placed on the outside face over the fans to prevent debris from entering
+			</p>
+
+			<p class="project-description"><b>Electrical:</b></p>
+			<p class="project-description">
+				Two DC-DC converters are mounted underneath the TI NIRScan to provide regulated power to
+				the subsystems within the housing. A CUI converter (PYB20-Q24-S3-T) with a 9-36 V input range and
+				3.3 V, 5 A output is used to power the custom light source. The output voltage is trimmed up to 3.5 V
+				using a resistor in line between the trim and Vo+ pins on the converter. The tungsten bulb is the only load
+				powered off of this supply as to mitigate noise and disturbances in the output signal. A circular push
+				30
+				button switch is located on the left panel above the SMA connector to the light source to control power to
+				this DC-DC converter. Additionally, a second CUI converter (PQA30-D24-S12-T) with an 18-36 V input
+				range and 12 V, 2.5 A output is used to power the remaining subsystems; the TI NIRScan spectrometer, a
+				USB hub to power the two Ocean Optics spectrometers, the two cooling fans, and a small LED on the
+				light source switch.
+			</p>
+			<p class="project-description">
+				The four pin power connector on the back panel splits to provide positive and ground lines to
+				each of the two converters. The set of wires feeding to the 12 V output converter is designed to receive
+				~24 V unregulated power straight from the battery pack on the robotic platform. The set of wires feeding
+				to the 3.5 V output converter has an input range of 9-36 V so it can take in either ~24 V unregulated
+				power or power from the 12 V regulator on board the robot.
+			</p>
+
+
 
 
 
