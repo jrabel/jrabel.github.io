@@ -72,7 +72,7 @@
         colors.set([1, 0, 0], i);
       }
       geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-      var material = new THREE.LineBasicMaterial({ vertexColors: THREE.VertexColors });
+      var material = new THREE.LineBasicMaterial({ vertexColors: THREE.VertexColors, linewidth: 100 });
       attractor = new THREE.Line(geometry, material);
       attractor.position.set(0, 0, 0);
       attractor.frustumCulled = false; // critical to avoid blackouts!
