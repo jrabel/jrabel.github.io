@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Justin Abel - Projects</title>
+
+    <meta charset="UTF-8" />
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="../../styles/navbar.css" rel="stylesheet" type="text/css">
+    <link href="../../styles/projects.css" rel="stylesheet" type="text/css">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm sticky-top" style="padding: 0; background-color: white">
+        <ul class="navbar-nav">
+            <li id="menu-title-box" class="nav-item">
+                <a id="menu-title" class="nav-link" href="../../index.html">Justin Abel</a>
+            </li>
+            <li id="menu-item-1" class="nav-item">
+                <a class="nav-link" href="../../index.html">Home</a>
+            </li>
+            <li id="menu-item-2" class="nav-item">
+                <a class="nav-link" href="../../about.html">About</a>
+            </li>
+            <li id="menu-item-3" class="nav-item active">
+                <a class="nav-link" href="../../projects.html">Projects</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="row justify-content-md-center align-items-center" style="margin: 30px 0;">
+
+        <div class="row justify-content-md-center">
+            <img src="../../images/projects/research/leaf_detection/leaf_gripper_rviz_global.png"
+                style="height: 300px; margin: 10px;" />
+            <img src="../../images/projects/research/leaf_detection/stalk_segmentation.png"
+                style="height: 300px; margin: 10px;" />
+        </div>
+
+        <div class="col-md-8">
+
+            <div class="row justify-content-md-center">
+                <h1 class="project-title" style="margin: 20px 0; text-align: center">Optimal Grasp Pose Detection on
+                    Leaves</h1>
+            </div>
+
+            <h1>Overview:</h1>
+
+            <p class="project-description">
+                In order to grasp sorghum (and corn) leaves using the custom manipulator developed in
+                <a href="../hardware/leaf-gripper.html" style="color: #00CED1;">"Robotic Leaf Grasping Manipulator"</a>,
+                a valid grasp pose must first be determined. This process in large part depends on the inverse
+                kinematics of the manipulator as well as the pose of the target object. Once a set of leaves have been
+                detected using the process described in
+                <a href="../research/leaf-detection.html" style="color: #00CED1;">"Real-Time Leaf Detection Using
+                    Stereo Camera"</a>, we can use the estimated 3D models of the leaves to calculate "optimal" grasp
+                poses. This page details the challenges from the limited degrees of freedom of the custom manipulator
+                and then describes algorithms used to quantify the quality of various potential grasp poses.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>
