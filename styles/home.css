@@ -1,3 +1,53 @@
+.home-title-box {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	margin: 0;
+	padding: 0;
+}
+
+.home-title {
+	font-size: 4em;
+	font-weight: bold;
+	font-family: 'Ubuntu', sans-serif;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.home-tile-fog {
+	top: 0; 
+	position: absolute; 
+	height: 100%; 
+	width: 100%; 
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.home-tile-fog:hover {
+	background-color: rgba(0, 0, 0, 0.0);
+}
+
+.title-button {
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	padding: 5px;
+	margin: 5px 0;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	border-radius: 5px;
+	color: rgba(255, 255, 255, 0.5);
+	border: rgba(255, 255, 255, 0.5) 2px solid;
+	background-color: rgba(255, 255, 255, 0.0);
+  }
+
+.title-button:hover {
+	color: rgba(255, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.5);
+	text-decoration: none;
+  }
+
 .self-portrait {
 	padding: 20px 0;
 	width: 100%;
