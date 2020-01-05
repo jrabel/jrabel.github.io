@@ -9,10 +9,12 @@
 }
 
 .home-title {
-	font-size: 4em;
+	padding: 0;
+	margin: 0;
+	font-size: 5em;
 	font-weight: bold;
 	font-family: 'Ubuntu', sans-serif;
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.8);
 }
 
 .home-tile-fog {
@@ -20,7 +22,7 @@
 	position: absolute; 
 	height: 100%; 
 	width: 100%; 
-	background-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
 .home-tile-fog:hover {
@@ -31,19 +33,19 @@
 	position: relative;
 	left: 50%;
 	transform: translate(-50%, 0);
-	padding: 5px;
-	margin: 5px 0;
+	padding: 5px 10px;
+	margin: 10px 0;
 	font-family: 'Ubuntu', sans-serif;
-	font-size: 1em;
+	font-size: 1.2em;
 	font-weight: bold;
 	border-radius: 5px;
-	color: rgba(255, 255, 255, 0.5);
-	border: rgba(255, 255, 255, 0.5) 2px solid;
-	background-color: rgba(255, 255, 255, 0.0);
+	color: rgba(255, 255, 255, 0.8);
+	border: rgba(255, 255, 255, 0.8) 2px solid;
+	background-color: rgba(255, 255, 255, 0.2);
   }
 
 .title-button:hover {
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.8);
 	background-color: rgba(255, 255, 255, 0.5);
 	text-decoration: none;
   }
