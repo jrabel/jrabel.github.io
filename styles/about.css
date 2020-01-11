@@ -8,7 +8,8 @@ h2 {
 h1 {
 	font-size: 1.25em;
 	font-family: 'Ubuntu', sans-serif;
-	color: orange;
+	/* color: orange; */
+	color: rgba(255, 200, 0);
 }
 
 p {
@@ -17,4 +18,43 @@ p {
 	color: grey;
 	text-align: justify;
 }
-}
+
+#resume-button {
+	width: 100px; 
+	text-align: center; 
+	margin: 10px 30px;
+	padding: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 0.8em;
+	font-weight: bold;
+	border-radius: 5px;
+	color: #2D7299;
+	background-color: white;
+	border: #2D7299 2px solid;
+  }
+  
+  #resume-button:hover {
+	color: white;
+	background-color: #2D7299;
+	text-decoration: none;
+  }
+
+  #linkedin-button {
+	width: 100px; 
+	text-align: center; 
+	margin: 10px 30px;
+	padding: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 0.8em;
+	font-weight: bold;
+	border-radius: 5px;
+	color: #2D7299;
+	background-color: white;
+	border: #2D7299 2px solid;
+  }
+  
+  #linkedin-button:hover {
+	color: white;
+	background-color: #2D7299;
+	text-decoration: none;
+  }
