@@ -1,0 +1,190 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    background: white;
+    display: block;
+    margin: 0;
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+}
+.col-4, .col-8 {
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar {
+    margin: 0;
+    padding: 20px;
+}
+
+#boardCanvas {
+    margin: 0;
+    padding: 0;
+}
+
+#controlPanel {
+    padding: 5px;
+    border-radius: 5px;
+	background-color: white;
+	border: lightgrey 2px solid;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 0.9em;
+    color: #777;
+    text-align: justify;
+}
+
+h1 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+h2 {
+    margin: 10px 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.controlTextInput {
+    height: 20px;
+    width: 90%;
+    font-size: 0.8em;
+}
+
+.controlButton {
+	min-width: 70px; 
+	text-align: center; 
+	margin: 10px;
+	padding: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 0.8em;
+	font-weight: bold;
+	border-radius: 5px;
+	color: black;
+	background-color: white;
+	border: black 2px solid;
+}
+
+.controlButtonSmall {
+	min-width: 50px; 
+	text-align: center; 
+	margin: 5px;
+	padding: 5px;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 0.7em;
+	font-weight: bold;
+	border-radius: 5px;
+	color: black;
+	background-color: white;
+	border: black 2px solid;
+}
+
+.redButton {
+    color: red;
+	background-color: white;
+	border: red 2px solid;
+}
+  
+.redButton:hover {
+	color: white;
+	background-color: red;
+	text-decoration: none;
+}
+
+  
+.yellowButton {
+    color: rgb(255, 200, 0);
+    background-color: white;
+    border: rgb(255, 200, 0) 2px solid;
+}
+
+.yellowButton:hover {
+    color: white;
+    background-color: rgb(255, 200, 0);
+}
+  
+.greenButton {
+    color: rgb(0, 200, 0);
+    background-color: white;
+    border: rgb(0, 200, 0) 2px solid;
+}
+
+.greenButton:hover {
+    color: white;
+    background-color: rgb(0, 200, 0);
+}
+
+.blueButton {
+    color: rgb(20, 20, 200);
+    background-color: white;
+    border: rgb(20, 20, 200) 2px solid;
+}
+  
+.blueButton:hover {
+    color: white;
+    background-color: rgb(20, 20, 200);
+}
+
+.blackButton {
+    color: black;
+    background-color: white;
+    border: black 2px solid;
+}
+  
+.blackButton:hover {
+    color: white;
+    background-color: black;
+}
+
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 15px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    background: black; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    background: black; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
