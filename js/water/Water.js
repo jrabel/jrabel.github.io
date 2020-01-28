@@ -1,5 +1,6 @@
-var Water = function (x, y, z, width, depth, widthSegments, depthSegments) {
+var Water = function (scene, x, y, z, width, depth, widthSegments, depthSegments) {
 
+    this.scene = scene;
     this.x = x;
     this.y = y;
     this.waterLevel = z;
@@ -36,10 +37,22 @@ var Water = function (x, y, z, width, depth, widthSegments, depthSegments) {
         this.generateGeometry();
         this.generateMaterial();
         this.mesh = new THREE.Mesh(this.geometry, this.material);
+        this.scene.add(this.mesh);
     }
 
-    this.addWaterToScene = function (scene) {
-        scene.add(this.mesh);
+    this.updateWater = function (centerPosition) {
+
+        var xDisplacement = centerPosition.x - this.x;
+        var yDisplacement = centerPosition.y - this.y;
+
+        this.x = centerPosition.x;
+        this.y = centerPosition.y;
+
+        for (vertex of this.geometry.vertices) {
+            vertex.x += xDisplacement;
+            vertex.y += yDisplacement;
+        }
+        this.geometry.verticesNeedUpdate = true;
     }
 
     this.generateMesh();
