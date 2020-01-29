@@ -19,13 +19,22 @@ var TerrainPatch = function (x, y, z, width, depth, widthSegments, depthSegments
     this.generateHeight = function () {
         var size = this.widthSegments * this.depthSegments;
         var data = new Float32Array(size);
-        var cycles = 4;
+
+        var noiseConstant = this.maxHeight;
+        var densityConstant = 1 / ((this.width + this.depth) / 2);
+
+        // noise gains control the amplitude of the mesh height for a given noise cycle
+        noiseGains = [2, 0.5, 0.2, 0.1];
+        // density gains control the density of peaks and troughs (higher is more dense)
+        densityGains = [0.2, 0.5, 1, 2];
+        var cycles = noiseGains.length;
+        if (cycles != densityGains.length) throw Error("TerrainPatch::generateHeight: Length of noise gains must equal length of density gains");
 
         for (var cycle = 0; cycle < cycles; cycle++) {
             var index = 0;
 
-            var noiseScale = this.maxHeight * ((cycle + 1) / cycles);
-            var positionScale = 2 * (this.width + this.depth) / 2 * ((cycle + 1) / cycles);
+            var noiseFactor = noiseConstant * noiseGains[cycle];
+            var densityFactor = densityConstant * densityGains[cycle];
 
             // odd for loop order to ensure we loop through buffergeometry correctly
             for (var j = this.depthSegments - 1; j >= 0; j--) {
@@ -33,18 +42,12 @@ var TerrainPatch = function (x, y, z, width, depth, widthSegments, depthSegments
 
                     var x = i * this.width / (this.widthSegments - 1) + this.x;
                     var y = j * this.depth / (this.depthSegments - 1) + this.y;
-                    x /= positionScale;
-                    y /= positionScale;
+                    x *= densityFactor;
+                    y *= densityFactor;
                     var noiseValue = perlin.perlin2(x, y);
-                    data[index++] += noiseValue * noiseScale;
-
-                    // console.log("(x,y): " + x + "," + y + "");
-                    // console.log(noiseValue * noiseScale);
-                    // console.log();
+                    data[index++] += noiseValue * noiseFactor;
                 }
             }
-            // console.log("noiseScale: " + noiseScale);
-            // console.log("positionScale: " + positionScale);
         }
         return data;
     }

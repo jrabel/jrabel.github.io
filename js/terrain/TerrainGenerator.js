@@ -13,7 +13,7 @@ var TerrainGenerator = function (scene, widthPatches, depthPatches, patchWidth, 
     this.patchWidthSegments = 10;
     this.patchDepthSegments = 10;
 
-    this.maxHeight = Math.floor((this.patchWidth + this.patchDepth) / 2) / 2;
+    this.maxHeight = Math.floor((this.patchWidth + this.patchDepth) / 2);
     this.waterLevel = - (1 / 2) * this.maxHeight;
 
     this.perlin = new Perlin();
@@ -104,7 +104,7 @@ var TerrainGenerator = function (scene, widthPatches, depthPatches, patchWidth, 
         var centerY = Math.round(centerPosition.y / this.patchDepth) * this.patchDepth;
         var centerZ = 0;
         var combinedPatchCenter = new THREE.Vector3(centerX, centerY, centerZ);
-        // console.log(combinedPatchCenter);
+        console.log(combinedPatchCenter);
         var newTerrainPatchCenters = this.calculateTerrainPatchCenters(combinedPatchCenter);
         this.updateTerrainPatchCenters(newTerrainPatchCenters);
         this.water.updateWater(combinedPatchCenter);

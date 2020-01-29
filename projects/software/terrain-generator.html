@@ -73,6 +73,9 @@
             var totalDepth = patchDepth * depthPatches;
 
             terrainGenerator = new TerrainGenerator(scene, widthPatches, depthPatches, patchWidth, patchDepth);
+            terrainGenerator.updateTerrain(camera.position);
+
+            console.log(camera.position);
 
             renderer = new THREE.WebGLRenderer();
             renderer.setPixelRatio(window.devicePixelRatio);
