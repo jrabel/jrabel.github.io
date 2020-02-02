@@ -37,6 +37,7 @@ var Water = function (scene, x, y, z, width, depth, widthSegments, depthSegments
         this.generateGeometry();
         this.generateMaterial();
         this.mesh = new THREE.Mesh(this.geometry, this.material);
+        this.mesh.frustumCulled = false;
         this.scene.add(this.mesh);
     }
 

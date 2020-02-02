@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Terrain Generator</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <style>
-        #container,
-        body {
-            overflow: hidden;
-        }
-    </style>
 
+    <title>Terrain Generator</title>
+
+    <meta charset="UTF-8" />
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="../../styles/navbar.css" rel="stylesheet" type="text/css">
+    <link href="../../styles/projects.css" rel="stylesheet" type="text/css">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <!-- JS -->
     <script src="../../js/vendor/three.js"></script>
     <script src="../../js/vendor/OrbitControls.js"></script>
     <script src="../../js/vendor/Perlin.js"></script>
@@ -25,122 +30,52 @@
 
 <body>
 
-    <div id="container"></div>
+    <nav id="main-nav" class="navbar navbar-expand-sm sticky-top" style="padding: 0; background-color: white">
+        <ul class="navbar-nav">
+            <li id="menu-title-box" class="nav-item">
+                <a id="menu-title" class="nav-link" href="../../index.html">Justin Abel</a>
+            </li>
+            <li id="menu-item-1" class="nav-item">
+                <a class="nav-link" href="../../index.html">Home</a>
+            </li>
+            <li id="menu-item-2" class="nav-item">
+                <a class="nav-link" href="../../about.html">About</a>
+            </li>
+            <li id="menu-item-3" class="nav-item active">
+                <a class="nav-link" href="../../projects.html">Projects</a>
+            </li>
+        </ul>
+    </nav>
 
-    <script type="module">
+    <div id="main-viewer" class="row">
+        <div class="col-md-2" style="height: 100%;">
+            <h1>Infinite Terrain Generator</h1>
 
-        var container;
+            <p class="project-description" style="text-align: left;">
+                This terrain generator is an experiment in dynamically re-rendering an environment as the camera moves
+                throughout the universe. Only a small patch of terrain is rendered based on the location of the camera.
+                However, adjacent terrain tiles are created as the camera moves to create the effect of infinite
+                terrain. This project was created using Three.js.
+            </p>
 
-        var camera, controls, scene, renderer;
+            <p class="project-description" style="text-align: left; margin-bottom: 5px"><b>Controls:</b></p>
+            <p class="project-description" style="text-align: left; margin-bottom: 5px">Right-Click: orbit camera</p>
+            <p class="project-description" style="text-align: left; margin-bottom: 5px">Left-Click: translate camera</p>
 
-        var mesh;
+        </div>
+        <div class="col-md-10" style="padding: 0; height: 100%;">
+            <div id="container" style="height: 100%; width: 100%"></div>
+        </div>
+    </div>
 
-        var clock = new THREE.Clock();
-
-        var terrainGenerator;
-
-        init();
-        animate();
-
-        function init() {
-
-            container = document.getElementById('container');
-
-            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 50000);
-
-            scene = new THREE.Scene();
-
-            var backgroundColor = 0x87ceeb;
-            scene.background = new THREE.Color(backgroundColor);
-
-            // scene.fog = new THREE.Fog(backgroundColor, 5000, 10000);
-
-            camera.position.x = 0;
-            camera.position.y = -5000;
-            camera.position.z = 5000;
-            camera.up = new THREE.Vector3(0, 0, 1);
-
-            var cylinderGeometry = new THREE.CylinderGeometry(50, 50, 1000, 32);
-            var cylinderMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-            var cylinderMesh = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
-            cylinderMesh.rotation.x = Math.PI / 2;
-            scene.add(cylinderMesh);
-
-
-            var widthPatches = 20, depthPatches = 20;
-            var patchWidth = 1000, patchDepth = 1000;
-            var totalWidth = patchWidth * widthPatches;
-            var totalDepth = patchDepth * depthPatches;
-
-            terrainGenerator = new TerrainGenerator(scene, widthPatches, depthPatches, patchWidth, patchDepth);
-            terrainGenerator.updateTerrain(camera.position);
-
-            console.log(camera.position);
-
-            renderer = new THREE.WebGLRenderer();
-            renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            container.appendChild(renderer.domElement);
-
-            controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.target = new THREE.Vector3(0, 0, 0);
-            // controls = new FlyControls(camera, renderer.domElement);
-
-            // controls.movementSpeed = 1000;
-            // controls.domElement = renderer.domElement;
-            // controls.rollSpeed = Math.PI / 24;
-            // controls.autoForward = false;
-            // controls.dragToLook = false;
-
-            const ambientLight = new THREE.HemisphereLight(0xddeeff, 0x0f0e0d, 3);
-
-            scene.add(ambientLight);
-
-            window.addEventListener('resize', onWindowResize, false);
-
-        }
-
-        function getCameraGroundPlaneIntersection() {
-            var cameraAxisVector = new THREE.Vector3(0, 0, -1);
-            cameraAxisVector.applyQuaternion(camera.quaternion);
-
-            var distanceAlongVectorToPlane = (0 - camera.position.z) / cameraAxisVector.z;
-
-            var intersectionPointX = camera.position.x + distanceAlongVectorToPlane * cameraAxisVector.x;
-            var intersectionPointY = camera.position.y + distanceAlongVectorToPlane * cameraAxisVector.y;
-            var intersectionPointZ = camera.position.z + distanceAlongVectorToPlane * cameraAxisVector.z;
-            var intersectionPoint = new THREE.Vector3(intersectionPointX, intersectionPointY, intersectionPointZ);
-
-            return intersectionPoint;
-        }
-
-        function onWindowResize() {
-
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-
-            renderer.setSize(window.innerWidth, window.innerHeight);
-
-        }
-
-        function animate() {
-
-            requestAnimationFrame(animate);
-
-            render();
-
-        }
-
-        function render() {
-            var cameraPlaneIntersectionPoint = getCameraGroundPlaneIntersection();
-            terrainGenerator.updateTerrain(cameraPlaneIntersectionPoint);
-
-            controls.update(clock.getDelta());
-            renderer.render(scene, camera);
-
-        }
-
+    <script>
+        var bodyHeight = document.body.offsetHeight;
+        var navBarHeight = document.getElementById("main-nav").offsetHeight;
+        // console.log(bodyHeight - navBarHeight);
+        document.getElementById("main-viewer").style.height = (bodyHeight - navBarHeight).toString() + "px";
     </script>
+
+    <script src="../../js/terrain.js"></script>
 
 </body>
 
